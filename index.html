@@ -1,153 +1,96 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
+<meta charset='UTF-8' />
+<meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5'
+  name='viewport' />
+<meta content='IE=edge' http-equiv='X-UA-Compatible' />
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+<link href="https://htmlku.com/akuakan/play/style.css" rel="stylesheet" type="text/css" />
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Kamu Una Anak Kami Tersayang ❤️</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #333;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    .container {
-      padding: 30px;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .heart {
-      font-size: 60px;
-      animation: beat 1s infinite;
-    }
-
-    @keyframes beat {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #ff6b81;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .photo {
-      width: 220px;
-      border-radius: 15px;
-      margin-top: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* animasi hati jatuh */
-    .falling-heart {
-      position: fixed;
-      top: -10px;
-      font-size: 20px;
-      animation: fall linear infinite;
-      color: red;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-  </style>
+  <title>Hai Tuan Putri Ku Wardani</title>
+  <link rel="icon" type="image/svg+xml" href="https://feeldreams.github.io/main-icon.png">
+  <link rel="apple-touch-icon" href="https://feeldreams.github.io/main-icon.png">
 </head>
+
 <body>
 
-<!-- AUDIO -->
-<audio id="bgm" loop>
-  <source src="musik.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container">
-  <div class="heart">❤️</div>
-
-  <h1>Halo Aruna Mafaza Belvina</h1>
-
-  <p>
-    Kami mungkin bukan orang tua yang paling sempurna,<br>
-    tapi kami selalu ingin jadi yang terbaik untuk kamu Sayang.
-  </p>
-
-  <button onclick="startExperience()">Klik ini ya 💌</button>
-
-  <div id="message" class="hidden">
-    <p>
-      Terima kasih sudah ada di hidup kami.<br>
-      Setiap hari bersamamu itu berharga.<br><br>
-      Kami akan selalu sayang kamu, sekarang... besok... dan seterusnya ❤️
-    </p>
-
-    <!-- GANTI FOTO DI SINI -->
-    <img src="foto.jpg" class="photo" alt="Foto kita">
-
-    <p>
-      - Dari Om Ayip dan Mama yang selalu menyayangimu -
-    </p>
-
-    <button onclick="loveAlert()">Kami Sayang Kamu Cinta 💖</button>
+  <div id="bodyblur">
+    <!-- Wallpaper / Background --><img src="image.png"
+      id="wallpaper" />
   </div>
-</div>
 
-<script>
-  function startExperience() {
-    document.getElementById("message").classList.remove("hidden");
+  <div class="kumpulanstiker">
+    <!-- Stiker untuk Konten -->
+    <img src="https://feeldreams.github.io/pusn.gif" id="stiker1" />
+    <img src="https://feeldreams.github.io/wortel.gif" id="stiker2" />
+    <img src="https://feeldreams.github.io/mndkat.gif" id="stiker3" />
+    <img src="https://feeldreams.github.io/ngumpet.gif" id="stiker4" />
 
-    // play musik
-    const music = document.getElementById("bgm");
-    music.play();
+    <div id='Content'>
 
-    // mulai efek hati jatuh
-    startHearts();
-  }
+      <div id="suratin" onClick="memulai();audio.play();">
+        <!-- Surat --><img src="https://rayyscoding.github.io/envelope.png" />
+      </div>
+      <p id="ket">Tuan Putri ku Wardani Klik Suratnya Ya!</p>
 
-  function loveAlert() {
-    alert("kami tahu kok Una juga sayang kami 😆❤️");
-  }
+      <div>
+        <!-- Foto Akhir -->
+        <img src="https://feeldreams.github.io/pandapukpuk.gif" id="fotoakhir" />
+        <img src="https://feeldreams.github.io/gumush.gif" id="fotoakhir2" />
+      </div>
+      <div>
+        <blockquote id='bq'>
+          <p id="kalimat"></p>
+          <p id="kalimatc"></p>
+        </blockquote>
+      </div>
 
-  function startHearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "falling-heart";
-      heart.innerText = "❤️";
+      <!-- Tombol Kirim Pesan -->
+      <div id="Tombol">
+        <a onClick="sjawab()">
+          <b>💌 Balas</b>
+        </a>
+      </div>
 
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    </div>
 
-      document.body.appendChild(heart);
+    <script src="https://htmlku.com/akuakan/play/script.js"></script>
 
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    }, 300);
-  }
-</script>
+    <script type="text/javascript">
+      async function pertama() {
+        audio = new Audio('https://audio.jukehost.co.uk/5VfcVfr1D3fIU8m27X85m5HVkPyRIhQr'); showDiv();
+      } pertama();
 
+
+      async function pesan() {
+        await swalst.fire({
+          title: 'Sayangggg kuuuu 😍',
+          imageUrl: '' + stiker1.src,
+        });
+
+        await swalst.fire({
+          title: 'Maaf ya Kalo Aku<br>Suka Bikin Kamu Kesel, OVT, Cemburuan 🫠',
+          imageUrl: '' + stiker2.src,
+        });
+
+        await swalst.fire({
+          title: 'Dan Bikin Kamu Marah² Terus 🫠',
+          imageUrl: '' + stiker3.src,
+        });
+
+        await swalst.fire({
+          title: 'Sayang Aku Cuma Mau Bilang.. 🫶',
+          imageUrl: '' + stiker4.src,
+        });
+
+        katangetik = "<b class='putih merah fontalt'>Maaf yaa cinta</b> aku belum bisa jadi<br>yang terbaik buat kamu,<br><br>Aku juga gabisa sepenuhnya ngertiin gimana cara kamu ingin dicintai,<br><br>Aku terlalu banyak kurangnya buat orang sespesial kamu,<br><br>Tapi... Aku akan berusaha yang terbaik buat kamu kok 🥰";
+        katangetik2 = "<i>I Love uuu Cintakuuuu</i> 💐🫣🩷";
+
+        setTimeout(kpemb, 200);
+      }
+    </script>
 </body>
+
 </html>
